@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notion Tabs</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #1e1e1e;
+      color: #fff;
+    }
+    .tab-container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #444;
+    }
+    .tab {
+      flex: 1;
+      padding: 10px 20px;
+      text-align: center;
+      cursor: pointer;
+      background-color: #2a2a2a;
+      border: none;
+      color: #ccc;
+      transition: all 0.2s ease;
+    }
+    .tab:hover {
+      background-color: #3a3a3a;
+      color: #fff;
+    }
+    .tab.active {
+      background-color: #444;
+      color: #fff;
+      border-bottom: 2px solid #1abc9c;
+    }
+    .tab-content {
+      display: none;
+      padding: 20px;
+    }
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="tab-container">
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab(0)">Tab 1</button>
+      <button class="tab" onclick="switchTab(1)">Tab 2</button>
+      <button class="tab" onclick="switchTab(2)">Tab 3</button>
+    </div>
+    <div class="tab-content active">👋 This is the content for Tab 1.</div>
+    <div class="tab-content">📚 Here's Tab 2's content — maybe a list or notes?</div>
+    <div class="tab-content">🔥 Tab 3 content goes here. Add anything you like!</div>
+  </div>
+
+  <script>
+    function switchTab(index) {
+      const tabs = document.querySelectorAll('.tab');
+      const contents = document.querySelectorAll('.tab-content');
+      tabs.forEach((tab, i) => {
+        tab.classList.toggle('active', i === index);
+        contents[i].classList.toggle('active', i === index);
+      });
+    }
+  </script>
+</body>
+</html>
