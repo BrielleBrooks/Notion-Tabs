@@ -3,61 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Notion Tabs</title>
+  <title>Notion Tabs Widget</title>
   <style>
     body {
       margin: 0;
-      font-family: sans-serif;
+      padding: 0;
       background-color: #1e1e1e;
+      font-family: system-ui, sans-serif;
       color: #fff;
+      overflow-x: hidden;
     }
+
     .tab-container {
-      width: 100%;
-      max-width: 1000px;
+      max-width: 900px;
       margin: 0 auto;
+      padding: 20px;
     }
+
     .tabs {
       display: flex;
       border-bottom: 2px solid #444;
+      margin-bottom: 20px;
     }
+
     .tab {
       flex: 1;
-      padding: 10px 20px;
+      padding: 10px 15px;
       text-align: center;
-      cursor: pointer;
       background-color: #2a2a2a;
-      border: none;
       color: #ccc;
-      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
     }
+
     .tab:hover {
       background-color: #3a3a3a;
-      color: #fff;
     }
+
     .tab.active {
       background-color: #444;
       color: #fff;
       border-bottom: 2px solid #1abc9c;
     }
+
     .tab-content {
       display: none;
-      padding: 20px;
+      padding: 10px;
+      background-color: #262626;
+      border-radius: 6px;
     }
+
     .tab-content.active {
       display: block;
+    }
+
+    h1, h2, h3, h4, p, ul, li, blockquote, pre, code, img, iframe {
+      color: #eee;
+      max-width: 100%;
+    }
+
+    a {
+      color: #1abc9c;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    blockquote {
+      border-left: 4px solid #1abc9c;
+      padding-left: 10px;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
   <div class="tab-container">
     <div class="tabs">
-      <button class="tab active" onclick="switchTab(0)">Tab 1</button>
-      <button class="tab" onclick="switchTab(1)">Tab 2</button>
-      <button class="tab" onclick="switchTab(2)">Tab 3</button>
+      <button class="tab active" onclick="switchTab(0)">Overview</button>
+      <button class="tab" onclick="switchTab(1)">Notes</button>
+      <button class="tab" onclick="switchTab(2)">Quotes</button>
     </div>
-    <div class="tab-content active">👋 This is the content for Tab 1.</div>
-    <div class="tab-content">📚 Here's Tab 2's content — maybe a list or notes?</div>
-    <div class="tab-content">🔥 Tab 3 content goes here. Add anything you like!</div>
+
+    <div class="tab-content active">
+      <h2>Overview</h2>
+      <p>This tab includes Notion-style content like paragraphs, lists, and links.</p>
+      <ul>
+        <li>Characters introduced</li>
+        <li>Major plot points</li>
+        <li>Emotional tone</li>
+      </ul>
+      <p>Visit <a href="https://notion.so" target="_blank">Notion</a> for more tools.</p>
+    </div>
+
+    <div class="tab-content">
+      <h2>Notes</h2>
+      <blockquote>
+        “Make them question if they just paid to watch someone die.”
+      </blockquote>
+      <p>Theme for this chapter: <strong>illusion vs reality</strong></p>
+    </div>
+
+    <div class="tab-content">
+      <h2>Quotes</h2>
+      <p>“You like being hunted?”</p>
+      <p>“Say it.” <em>“Or what?”</em> “Or I make you.”</p>
+    </div>
   </div>
 
   <script>
